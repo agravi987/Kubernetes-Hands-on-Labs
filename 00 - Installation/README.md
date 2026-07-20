@@ -122,7 +122,7 @@ git clone https://github.com/your-username/Kubernetes-Hands-On-Labs.git
 cd Kubernetes-Hands-On-Labs
 
 # Step 1: Install Docker (if not installed)
-cd installation/docker
+cd "00 - Installation/docker"
 cat README.md  # Follow the instructions
 
 # Step 2: Install kubectl (if not installed)

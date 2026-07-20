@@ -115,14 +115,14 @@ git clone https://github.com/your-username/Kubernetes-Hands-On-Labs.git
 cd Kubernetes-Hands-On-Labs
 
 # 2. Install prerequisites (Docker + kubectl)
-cat installation/README.md
+cat "00 - Installation/README.md"
 
 # 3. Install your Kubernetes distribution
-cd installation/minikube   # For Minikube (recommended)
+cd "00 - Installation/minikube"   # For Minikube (recommended)
 # OR
-cd installation/kind        # For kind (fastest)
+cd "00 - Installation/kind"        # For kind (fastest)
 # OR
-cd installation/kubeadm     # For kubeadm (production-like)
+cd "00 - Installation/kubeadm"     # For kubeadm (production-like)
 
 # 4. Start with Lab 01
 cd "../../01 - Minikube and kubectl Setup"
@@ -141,7 +141,7 @@ Kubernetes-Hands-On-Labs/
 ├── README.md                           ← You are here!
 ├── PREREQUISITES.md                    ← Setup guide
 │
-├── installation/                       ← 🔧 INSTALL YOUR TOOLS FIRST!
+├── 00 - Installation/                  ← 🔧 INSTALL YOUR TOOLS FIRST!
 │   ├── README.md                       ← Installation Hub (start here!)
 │   ├── docker/                         ← Docker installation guide
 │   ├── kubectl/                        ← kubectl installation guide
