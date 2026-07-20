@@ -17,7 +17,7 @@
 
 </div>
 
-> *"Everyone starts somewhere. For some, it's a 'Hello World' program. For us, it's spinning up our own Kubernetes cluster. No pressure!"* — **Rithu** 🧑‍🏫
+> _"Everyone starts somewhere. For some, it's a 'Hello World' program. For us, it's spinning up our own Kubernetes cluster. No pressure!"_ — **Rithu** 🧑‍🏫
 
 ---
 
@@ -39,7 +39,7 @@ By the end of this lab, you will:
 - [ ] Minikube installed
 - [ ] At least 2GB of free RAM
 
-> 💡 **Rithu's Tip:** *"If you haven't installed the tools yet, stop here and go to PREREQUISITES.md. I'll wait!"*
+> 💡 **Rithu's Tip:** _"If you haven't installed the tools yet, stop here and go to PREREQUISITES.md. I'll wait!"_
 
 ---
 
@@ -51,7 +51,7 @@ By the end of this lab, you will:
 🎯 Perfect for learning without worrying about bills!
 ```
 
-> *"The best kind of cloud bill is a $0 cloud bill. Minikube agrees."* — **Rithu** 🧑‍🏫
+> _"The best kind of cloud bill is a $0 cloud bill. Minikube agrees."_ — **Rithu** 🧑‍🏫
 
 ---
 
@@ -127,9 +127,10 @@ You should see output like:
 * Done! kubectl is now configured to use "minikube" cluster
 ```
 
-📸 **Screenshot Placeholder:** *[Terminal showing minikube start output]*
+📸 **Screenshot Placeholder:** _[Terminal showing minikube start output]_
+![Terminal showing minikube start output](images/minikube-start-output.png)
 
-> 💡 **Rithu's Tip:** *"The first start takes a few minutes as it pulls the base image. Subsequent starts are much faster — like upgrading from dial-up to broadband!"*
+> 💡 **Rithu's Tip:** _"The first start takes a few minutes as it pulls the base image. Subsequent starts are much faster — like upgrading from dial-up to broadband!"_
 
 ---
 
@@ -143,6 +144,7 @@ kubectl cluster-info
 ```
 
 Expected output:
+
 ```
 Kubernetes control plane is running at https://127.0.0.1:XXXXX
 CoreDNS is running at https://127.0.0.1:XXXXX/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
@@ -156,14 +158,16 @@ kubectl get nodes
 ```
 
 Expected output:
+
 ```
 NAME       STATUS   ROLES           AGE   VERSION
 minikube   Ready    control-plane   30s   v1.28.3
 ```
 
-📸 **Screenshot Placeholder:** *[Terminal showing kubectl get nodes output]*
+📸 **Screenshot Placeholder:** _[Terminal showing kubectl get nodes output]_
+![Terminal showing kubectl get nodes output](images/kubectl-get-nodes-output.png)
 
-> 💡 **Rithu's Tip:** *"That single 'Ready' node is your entire Kubernetes cluster right now. In production, you'd have many nodes — but hey, Rome wasn't built in a day!"*
+> 💡 **Rithu's Tip:** _"That single 'Ready' node is your entire Kubernetes cluster right now. In production, you'd have many nodes — but hey, Rome wasn't built in a day!"_
 
 ---
 
@@ -177,6 +181,7 @@ kubectl get pods -n kube-system
 ```
 
 Expected output:
+
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
 coredns-5dd5756b68-4xxxx          1/1     Running   0          1m
@@ -190,7 +195,8 @@ storage-provisioner                1/1     Running   0          1m
 
 These are the **control plane components** — the brain of your cluster! 🧠
 
-📸 **Screenshot Placeholder:** *[Terminal showing kube-system pods]*
+📸 **Screenshot Placeholder:** _[Terminal showing kube-system pods]_
+![Terminal showing kube-system pods](images/kube-system-pods.png)
 
 ---
 
@@ -204,6 +210,7 @@ kubectl get services
 ```
 
 Expected output:
+
 ```
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   1m
@@ -215,6 +222,7 @@ kubectl get namespaces
 ```
 
 Expected output:
+
 ```
 NAME              STATUS   AGE
 default           Active   1m
@@ -228,7 +236,8 @@ kube-system       Active   1m
 kubectl describe node minikube
 ```
 
-> 💡 **Rithu's Tip:** *"kubectl describe is your best friend when something goes wrong. It gives you the 'medical history' of any Kubernetes resource!"*
+> 💡 **Rithu's Tip:** _"kubectl describe is your best friend when something goes wrong. It gives you the 'medical history' of any Kubernetes resource!"_
+> ![Terminal showing kubectl describe node output](images/kubectl-describe-node.png)
 
 ---
 
@@ -247,14 +256,16 @@ kubectl get pods
 ```
 
 Wait for the pod to be in `Running` state:
+
 ```
 NAME                        READY   STATUS    RESTARTS   AGE
 my-nginx-7xxxxxxx-xxxxx    1/1     Running   0          30s
 ```
 
-📸 **Screenshot Placeholder:** *[Terminal showing nginx pod running]*
+📸 **Screenshot Placeholder:** _[Terminal showing nginx pod running]_
+![Terminal showing nginx pod running](images/nginx-pod-running.png)
 
-> 💡 **Rithu's Tip:** *"If the status says 'ContainerCreating', don't panic! It's just pulling the image. Give it a minute — even Kubernetes needs coffee sometimes."* ☕
+> 💡 **Rithu's Tip:** _"If the status says 'ContainerCreating', don't panic! It's just pulling the image. Give it a minute — even Kubernetes needs coffee sometimes."_ ☕
 
 ---
 
@@ -271,7 +282,8 @@ Now open your browser and go to: **http://localhost:8080**
 
 You should see the nginx welcome page! 🎉
 
-📸 **Screenshot Placeholder:** *[Browser showing nginx welcome page]*
+📸 **Screenshot Placeholder:** _[Browser showing nginx welcome page]_
+![Browser showing nginx welcome page](images/nginx-welcome-page.png)
 
 ```bash
 # Stop port-forwarding (Ctrl+C)
@@ -290,6 +302,7 @@ kubectl get deployments
 ```
 
 Expected output:
+
 ```
 No resources found in default namespace.
 ```
@@ -305,9 +318,10 @@ minikube dashboard
 
 This opens a web-based UI where you can see all your cluster resources visually!
 
-📸 **Screenshot Placeholder:** *[Minikube dashboard in browser]*
+📸 **Screenshot Placeholder:** _[Minikube dashboard in browser]_
+![Minikube dashboard in browser](images/minikube-dashboard.png)
 
-> 💡 **Rithu's Tip:** *"The dashboard is great for visual learners. But don't get too attached — in production, you'll probably use tools like Lens, Rancher, or k9s instead."*
+> 💡 **Rithu's Tip:** _"The dashboard is great for visual learners. But don't get too attached — in production, you'll probably use tools like Lens, Rancher, or k9s instead."_
 
 ---
 
@@ -321,6 +335,7 @@ kubectl config current-context
 ```
 
 Expected output:
+
 ```
 minikube
 ```
@@ -331,6 +346,7 @@ kubectl config get-contexts
 ```
 
 Expected output:
+
 ```
 CURRENT   NAME       CLUSTER    AUTHINFO    NAMESPACE
 *         minikube   minikube   minikube    default
@@ -341,7 +357,7 @@ CURRENT   NAME       CLUSTER    AUTHINFO    NAMESPACE
 kubectl config view
 ```
 
-> 💡 **Rithu's Tip:** *"Think of contexts as bookmarks for different clusters. You can switch between dev, staging, and production clusters with a single command!"*
+> 💡 **Rithu's Tip:** _"Think of contexts as bookmarks for different clusters. You can switch between dev, staging, and production clusters with a single command!"_
 
 ---
 
@@ -375,7 +391,7 @@ minikube addons enable dashboard
 minikube addons list
 ```
 
-> 💡 **Rithu's Tip:** *"minikube stop is like putting your cluster to sleep. minikube delete is like... well, you know. Use delete wisely!"* 💀
+> 💡 **Rithu's Tip:** _"minikube stop is like putting your cluster to sleep. minikube delete is like... well, you know. Use delete wisely!"_ 💀
 
 ---
 
@@ -402,9 +418,11 @@ kubectl get pods -n kube-system
 # Expected: All pods in Running/Completed state
 ```
 
-📸 **Screenshot Placeholder:** *[All verification commands showing expected output]*
+📸 **Screenshot Placeholder:** _[All verification commands showing expected output]_
 
-> *"If all four checks passed, congratulations! You just became a Kubernetes cluster administrator. Put that on your resume!"* — **Rithu** 🧑‍🏫
+![All verification commands showing expected output](images/verification-commands-output.png)
+
+> _"If all four checks passed, congratulations! You just became a Kubernetes cluster administrator. Put that on your resume!"_ — **Rithu** 🧑‍🏫
 
 ---
 
@@ -424,15 +442,15 @@ minikube delete
 
 ## 📝 What You Learned
 
-| Concept | Description |
-|---------|-------------|
-| **Minikube** | A tool that runs a single-node Kubernetes cluster locally |
-| **kubectl** | The command-line tool for interacting with Kubernetes |
-| **Cluster Info** | How to check your cluster's health and configuration |
-| **Nodes** | The machines (physical or virtual) that make up a cluster |
-| **kube-system** | The namespace where Kubernetes control plane components live |
-| **Port Forwarding** | How to access services running inside the cluster |
-| **Contexts** | How kubectl manages connections to multiple clusters |
+| Concept             | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| **Minikube**        | A tool that runs a single-node Kubernetes cluster locally    |
+| **kubectl**         | The command-line tool for interacting with Kubernetes        |
+| **Cluster Info**    | How to check your cluster's health and configuration         |
+| **Nodes**           | The machines (physical or virtual) that make up a cluster    |
+| **kube-system**     | The namespace where Kubernetes control plane components live |
+| **Port Forwarding** | How to access services running inside the cluster            |
+| **Contexts**        | How kubectl manages connections to multiple clusters         |
 
 ---
 

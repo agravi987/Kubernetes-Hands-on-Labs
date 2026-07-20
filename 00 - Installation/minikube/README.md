@@ -151,6 +151,7 @@ minikube start --driver=docker --memory=4096 --cpus=2
 ```
 
 📸 **Screenshot Placeholder:** _[Minikube started successfully on Windows]_
+![Minikube started successfully on Windows](images/minikube-started-successfully.png)
 
 ---
 
