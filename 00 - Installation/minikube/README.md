@@ -16,7 +16,7 @@
 
 </div>
 
-> *"Minikube is like having a tiny Kubernetes cluster sitting right inside your laptop. It's perfect for learning — no cloud bills, no complicated setup, just you and your cluster!"* — **Rithu** 🧑‍🏫
+> _"Minikube is like having a tiny Kubernetes cluster sitting right inside your laptop. It's perfect for learning — no cloud bills, no complicated setup, just you and your cluster!"_ — **Rithu** 🧑‍🏫
 
 ---
 
@@ -34,12 +34,12 @@ Minikube is a tool that runs a **single-node Kubernetes cluster** locally on you
 
 ## 🔧 System Requirements
 
-| Requirement | Minimum | Recommended |
-|-------------|---------|-------------|
-| **CPU** | 2 cores | 4+ cores |
-| **RAM** | 2GB | 4GB+ |
-| **Disk** | 20GB free | 50GB+ free |
-| **OS** | Windows 10+, macOS 10.15+, Ubuntu 18.04+ | Latest |
+| Requirement | Minimum                                  | Recommended |
+| ----------- | ---------------------------------------- | ----------- |
+| **CPU**     | 2 cores                                  | 4+ cores    |
+| **RAM**     | 2GB                                      | 4GB+        |
+| **Disk**    | 20GB free                                | 50GB+ free  |
+| **OS**      | Windows 10+, macOS 10.15+, Ubuntu 18.04+ | Latest      |
 
 ---
 
@@ -62,12 +62,14 @@ choco install docker-desktop
 ```
 
 **After installation:**
+
 1. Restart your computer
 2. Open Docker Desktop
 3. Wait for it to start (green icon in system tray)
 4. Enable "Use the Windows Subsystem for Linux 2" if prompted
 
-📸 **Screenshot Placeholder:** *[Docker Desktop running on Windows]*
+📸 **Screenshot Placeholder:** _[Docker Desktop running on Windows]_
+![Docker Desktop running on Windows](images/docker-desktop-windows.png)
 
 ```powershell
 # Verify Docker is running
@@ -78,7 +80,7 @@ docker run hello-world
 # Expected: "Hello from Docker!" message
 ```
 
-> 💡 **Rithu's Tip:** *"If Docker Desktop shows an error about WSL2, you need to enable Windows Subsystem for Linux. Open PowerShell as Admin and run: wsl --install"*
+> 💡 **Rithu's Tip:** _"If Docker Desktop shows an error about WSL2, you need to enable Windows Subsystem for Linux. Open PowerShell as Admin and run: wsl --install"_
 
 ---
 
@@ -137,6 +139,7 @@ minikube start --driver=docker --memory=4096 --cpus=2
 ```
 
 **Expected output:**
+
 ```
 * Using the docker driver based on existing profile
 * Starting control plane node minikube in cluster minikube
@@ -147,7 +150,7 @@ minikube start --driver=docker --memory=4096 --cpus=2
 * Done! kubectl is now configured to use "minikube" cluster
 ```
 
-📸 **Screenshot Placeholder:** *[Minikube started successfully on Windows]*
+📸 **Screenshot Placeholder:** _[Minikube started successfully on Windows]_
 
 ---
 
@@ -193,11 +196,12 @@ brew install --cask docker
 ```
 
 **After installation:**
+
 1. Open Docker Desktop from Applications
 2. Wait for it to start
 3. Grant necessary permissions
 
-📸 **Screenshot Placeholder:** *[Docker Desktop running on macOS]*
+📸 **Screenshot Placeholder:** _[Docker Desktop running on macOS]_
 
 ```bash
 # Verify Docker
@@ -255,7 +259,7 @@ minikube start --driver=docker
 minikube start --driver=docker --memory=4096 --cpus=2
 ```
 
-📸 **Screenshot Placeholder:** *[Minikube started successfully on macOS]*
+📸 **Screenshot Placeholder:** _[Minikube started successfully on macOS]_
 
 ---
 
@@ -299,9 +303,9 @@ docker --version
 docker run hello-world
 ```
 
-> 💡 **Rithu's Tip:** *"On EC2, make sure your instance has at least 2 vCPU and 4GB RAM. t3.medium is a good choice!"*
+> 💡 **Rithu's Tip:** _"On EC2, make sure your instance has at least 2 vCPU and 4GB RAM. t3.medium is a good choice!"_
 
-📸 **Screenshot Placeholder:** *[Docker running on Ubuntu/EC2]*
+📸 **Screenshot Placeholder:** _[Docker running on Ubuntu/EC2]_
 
 ---
 
@@ -355,7 +359,7 @@ minikube start --driver=docker
 minikube start --driver=docker --memory=4096 --cpus=2
 ```
 
-📸 **Screenshot Placeholder:** *[Minikube started successfully on Linux/EC2]*
+📸 **Screenshot Placeholder:** _[Minikube started successfully on Linux/EC2]_
 
 ---
 
@@ -415,6 +419,7 @@ minikube service <service-name> --url
 # 🆘 Troubleshooting
 
 ### "Docker is not running"
+
 ```bash
 # Windows/macOS: Start Docker Desktop
 # Linux:
@@ -422,6 +427,7 @@ sudo systemctl start docker
 ```
 
 ### "minikube start fails with memory error"
+
 ```bash
 # Allocate more memory
 minikube start --memory=4096 --cpus=2
@@ -431,6 +437,7 @@ minikube start --memory=4096 --cpus=2
 ```
 
 ### "kubectl cannot connect to cluster"
+
 ```bash
 # Make sure Minikube is running
 minikube status
@@ -447,6 +454,7 @@ kubectl config use-context minikube
 ```
 
 ### "Permission denied on Linux"
+
 ```bash
 # Add your user to the docker group
 sudo usermod -aG docker $USER
@@ -454,6 +462,7 @@ sudo usermod -aG docker $USER
 ```
 
 ### "Minikube stuck in 'Starting'"
+
 ```bash
 # Delete and recreate
 minikube delete
@@ -510,4 +519,4 @@ cat README.md
 
 </div>
 
-*Made with ❤️ by Rithu — "Welcome to the world of Kubernetes!"* 🧑‍🏫
+_Made with ❤️ by Rithu — "Welcome to the world of Kubernetes!"_ 🧑‍🏫
