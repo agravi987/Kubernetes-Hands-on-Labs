@@ -35,7 +35,7 @@ By the end of this lab, you will:
 ## 🧠 Prerequisites
 
 - [ ] Docker Desktop installed and running
-- [ ] kubectl installed (see [PREREQUISITES.md](../../PREREQUISITES.md))
+- [ ] kubectl installed (see [PREREQUISITES.md](../PREREQUISITES.md))
 - [ ] Minikube installed
 - [ ] At least 2GB of free RAM
 
