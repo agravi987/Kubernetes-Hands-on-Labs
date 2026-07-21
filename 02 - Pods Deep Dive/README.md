@@ -17,7 +17,7 @@
 
 </div>
 
-> *"Think of a Pod as a tiny apartment for your containers. Sometimes it's a studio with one container, sometimes it's a shared flat with several. Either way, they share the same network and storage!"* — **Rithu** 🧑‍🏫
+> _"Think of a Pod as a tiny apartment for your containers. Sometimes it's a studio with one container, sometimes it's a shared flat with several. Either way, they share the same network and storage!"_ — **Rithu** 🧑‍🏫
 
 ---
 
@@ -92,12 +92,13 @@ kubectl get pods
 ```
 
 Expected output:
+
 ```
 NAME           READY   STATUS    RESTARTS   AGE
 my-first-pod   1/1     Running   0          10s
 ```
 
-> 💡 **Rithu's Tip:** *"The imperative way (--image=nginx) is great for quick tests, but in the real world, we always use YAML manifests. Let's learn that next!"*
+> 💡 **Rithu's Tip:** _"The imperative way (--image=nginx) is great for quick tests, but in the real world, we always use YAML manifests. Let's learn that next!"_
 
 ---
 
@@ -146,15 +147,17 @@ kubectl get pods -o wide
 ```
 
 Expected output:
+
 ```
 NAME        READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE
 my-first-pod   1/1     Running   0          5m    172.17.0.3   minikube   <none>
 nginx-pod      1/1     Running   0          10s   172.17.0.4   minikube   <none>
 ```
 
-📸 **Screenshot Placeholder:** *[Terminal showing two running pods]*
+📸 **Screenshot Placeholder:** _[Terminal showing two running pods]_
+![Terminal showing two running pods](images/two-running-pods-output.png)
 
-> 💡 **Rithu's Tip:** *"Notice the labels? They're like tags on a blog post. Labels help Kubernetes organize and select resources. You'll use them A LOT!"*
+> 💡 **Rithu's Tip:** _"Notice the labels? They're like tags on a blog post. Labels help Kubernetes organize and select resources. You'll use them A LOT!"_
 
 ---
 
@@ -202,7 +205,7 @@ Events:
   Normal  Started    24s   kubelet            Started container nginx
 ```
 
-> 💡 **Rithu's Tip:** *"The Events section is gold! It tells you exactly what happened to your pod, step by step. If something's wrong, start here!"*
+> 💡 **Rithu's Tip:** _"The Events section is gold! It tells you exactly what happened to your pod, step by step. If something's wrong, start here!"_
 
 ---
 
@@ -214,6 +217,7 @@ kubectl logs nginx-pod
 ```
 
 Expected output:
+
 ```
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -233,9 +237,10 @@ kubectl logs nginx-pod --follow
 kubectl logs nginx-pod --previous
 ```
 
-> 💡 **Rithu's Tip:** *"kubectl logs is your debugging MVP. If your pod is crashing, the logs will usually tell you why!"*
+> 💡 **Rithu's Tip:** _"kubectl logs is your debugging MVP. If your pod is crashing, the logs will usually tell you why!"_
 
-📸 **Screenshot Placeholder:** *[Terminal showing nginx logs]*
+📸 **Screenshot Placeholder:** _[Terminal showing nginx logs]_
+![Terminal showing nginx logs](images/nginx-pod-logs.png)
 
 ---
 
@@ -266,9 +271,10 @@ kubectl exec nginx-pod -- cat /etc/os-release
 kubectl exec nginx-pod -- sh -c "echo Hello from inside the pod! && hostname"
 ```
 
-> 💡 **Rithu's Tip:** *"exec is like SSH-ing into your container. But remember — containers are ephemeral! Anything you create inside (files, etc.) will be lost if the pod restarts."*
+> 💡 **Rithu's Tip:** _"exec is like SSH-ing into your container. But remember — containers are ephemeral! Anything you create inside (files, etc.) will be lost if the pod restarts."_
 
-📸 **Screenshot Placeholder:** *[Terminal showing exec session inside nginx pod]*
+📸 **Screenshot Placeholder:** _[Terminal showing exec session inside nginx pod]_
+![Terminal showing exec session inside nginx pod](images/exec-session-nginx-pod.png)
 
 ---
 
@@ -316,15 +322,15 @@ Press `Ctrl+C` to stop watching.
 
 **Pod Phases:**
 
-| Phase | Description |
-|-------|-------------|
-| **Pending** | Pod accepted but containers not yet running (pulling image, waiting for scheduler) |
-| **Running** | At least one container is running |
-| **Succeeded** | All containers exited with code 0 |
-| **Failed** | All containers exited, at least one with non-zero code |
-| **Unknown** | Pod status couldn't be obtained (usually node communication issue) |
+| Phase         | Description                                                                        |
+| ------------- | ---------------------------------------------------------------------------------- |
+| **Pending**   | Pod accepted but containers not yet running (pulling image, waiting for scheduler) |
+| **Running**   | At least one container is running                                                  |
+| **Succeeded** | All containers exited with code 0                                                  |
+| **Failed**    | All containers exited, at least one with non-zero code                             |
+| **Unknown**   | Pod status couldn't be obtained (usually node communication issue)                 |
 
-> 💡 **Rithu's Tip:** *"If your pod is stuck in 'Pending', it usually means Kubernetes can't schedule it — maybe not enough resources, or a node selector mismatch. describe is your friend here!"*
+> 💡 **Rithu's Tip:** _"If your pod is stuck in 'Pending', it usually means Kubernetes can't schedule it — maybe not enough resources, or a node selector mismatch. describe is your friend here!"_
 
 ---
 
@@ -383,9 +389,10 @@ kubectl logs sidecar-demo -c log-reader
 # You'll see nginx access logs!
 ```
 
-> 💡 **Rithu's Tip:** *"The sidecar pattern is super powerful! You can use it for logging, monitoring, proxying, and more. Think of it as a helpful assistant living in the same room as your main app."*
+> 💡 **Rithu's Tip:** _"The sidecar pattern is super powerful! You can use it for logging, monitoring, proxying, and more. Think of it as a helpful assistant living in the same room as your main app."_
 
-📸 **Screenshot Placeholder:** *[Terminal showing log-reader outputting nginx access logs]*
+📸 **Screenshot Placeholder:** _[Terminal showing log-reader outputting nginx access logs]_
+![Terminal showing log-reader outputting nginx access logs](images/sidecar-log-reader-output.png)
 
 ---
 
@@ -421,7 +428,7 @@ kubectl apply -f resource-limited-pod.yaml
 kubectl get pods resource-demo -w
 ```
 
-> 💡 **Rithu's Tip:** *"Requests = minimum guaranteed resources. Limits = maximum allowed. If a pod exceeds its memory limit, it gets killed (OOMKilled). If it exceeds CPU, it gets throttled."*
+> 💡 **Rithu's Tip:** _"Requests = minimum guaranteed resources. Limits = maximum allowed. If a pod exceeds its memory limit, it gets killed (OOMKilled). If it exceeds CPU, it gets throttled."_
 
 ---
 
@@ -490,17 +497,17 @@ kubectl get all
 
 ## 📝 What You Learned
 
-| Concept | Description |
-|---------|-------------|
-| **Pod** | The smallest deployable unit in Kubernetes |
-| **Labels** | Key-value pairs for organizing and selecting resources |
-| **Pod Status** | Different phases a pod goes through (Pending, Running, etc.) |
-| **kubectl describe** | Detailed information about any resource |
-| **kubectl logs** | View container output logs |
-| **kubectl exec** | Execute commands inside running containers |
-| **Sidecar Pattern** | Multiple containers sharing the same pod and volumes |
-| **Resource Limits** | CPU and memory constraints for pods |
-| **Port Forwarding** | Access pod services from your local machine |
+| Concept              | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| **Pod**              | The smallest deployable unit in Kubernetes                   |
+| **Labels**           | Key-value pairs for organizing and selecting resources       |
+| **Pod Status**       | Different phases a pod goes through (Pending, Running, etc.) |
+| **kubectl describe** | Detailed information about any resource                      |
+| **kubectl logs**     | View container output logs                                   |
+| **kubectl exec**     | Execute commands inside running containers                   |
+| **Sidecar Pattern**  | Multiple containers sharing the same pod and volumes         |
+| **Resource Limits**  | CPU and memory constraints for pods                          |
+| **Port Forwarding**  | Access pod services from your local machine                  |
 
 ---
 
